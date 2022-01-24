@@ -1,0 +1,17 @@
+div {
+    color: rgb(240, 232, 232);
+    font-family: Tahoma, Verdana, Segoe, sans-serif;
+    padding: 20px;
+}
+.container {
+    background-color:#3159b6;
+    display:flex;
+}
+.fixed {
+    background-color:#566da1;
+    margin-left: 40px;
+}
+.flex-item {
+    background-color:#b8c0d4;
+    flex-grow: 1;
+}

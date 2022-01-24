@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="fixed">
+        <h1>My Calculator</h1>
+        <div>
+          <input type="text" id="display_value" /><br /><br />
+          <input type="button" value="+" onclick="display('+')" />
+          <input type="button" value="1" onclick="display('1')" />
+          <input type="button" value="2" onclick="display('2')" />
+          <input type="button" value="3" onclick="display('3')" /> <br /><br />
+          <input type="button" value="-" onclick="display('-')" />
+          <input type="button" value="4" onclick="display('4')" />
+          <input type="button" value="5" onclick="display('5')" />
+          <input type="button" value="6" onclick="display('6')" /> <br /><br />
+          <input type="button" value="*" onclick="display('*')" />
+          <input type="button" value="7" onclick="display('7')" />
+          <input type="button" value="8" onclick="display('8')" />
+          <input type="button" value="9" onclick="display('9')" /> <br /><br />
+          <input type="button" value="/" onclick="display('/')" />
+          <input type="button" value="." onclick="display('.')" />
+          <input type="button" value="0" onclick="display('0')" />
+          <input type="button" value="C" onclick="clearScreen()" />
+          <br /><br />
+          <h3>Click = for Output:</h3>
+          <input type="button" value="=" onclick="calculator()" />
+          <input type="text" id="display_result" />
+        </div>
+      </div>
+      <div class="fixed"> 
+        <h1>Area Calculator</h1>
+        <div>
+          <form action="javascript:area()" onchange="javascript:clear_form()">
+            <label for="figure">Select a Figure</label>
+            <select id="figure">
+              <option value="circle" selected>Circle</option>
+              <option value="triangle">Triangle</option>
+              <option value="square">Square</option>
+              <option value="rectangle">Rectangle</option>
+              <option value="trapezoid">Trapezoid</option>
+              <option value="parallelogram">Parallelogram</option>
+              <option value="rhombus">Rhombus</option>
+              <option value="kite">Kite</option>
+            </select>
+
+            <br /><br />
+
+            <div id="figure_circle">
+              <label for="radius">Radius</label>
+              <input id="radius" type="number" min="0" step="any" />
+              <h2>
+                <em>Area = &Pi;r<sup>2</sup></em>
+              </h2>
+            </div>
+
+            <div id="figure_triangle" hidden>
+              <label for="base">Base</label>
+              <input id="base" type="number" min="0" step="any" /><br><br>
+              <label for="height">Height</label>
+              <input id="height" type="number" min="0" step="any" />
+              <h2>
+                <em>A = <sup>bh</sup>&frasl;<sub>2</sub></em>
+              </h2>
+            </div>
+
+            <div id="figure_square" hidden>
+              <label for="side">Side</label>
+              <input id="side" type="number" min="0" step="any" />
+              <h2>
+                <em>A = s<sup>2</sup></em>
+              </h2>
+            </div>
+
+            <div id="figure_rectangle" hidden>
+              <label for="length">Length</label>
+              <input id="length" type="number" min="0" step="any" /><br><br>
+              <label for="width">Width</label>
+              <input id="width" type="number" min="0" step="any" />
+              <h2><em>A = lw</em></h2>
+            </div>
+
+            <div id="figure_trapezoid" hidden>
+              <label for="base1">Base 1</label>
+              <input id="base1" type="number" min="0" step="any" /><br><br>
+              <label for="base2">Base 2</label>
+              <input id="base2" type="number" min="0" step="any" /><br><br>
+              <label for="height1">Height</label>
+              <input id="height1" type="number" min="0" step="any" /><br><br>
+              <h2><em>A = (b1+b2)*h/2</em></h2>
+            </div>
+
+            <div id="figure_parallelogram" hidden>
+              <label for="base_parallelogram">Base</label>
+              <input id="base_parallelogram" type="number" min="0" step="any" /><br><br>
+              <label for="height_parallelogram">Height</label>
+              <input id="height_parallelogram" type="number" min="0" step="any"/>
+              <h2><em>A = bh</em></h2>
+            </div>
+
+            <div id="figure_rhombus" hidden>
+              <label for="diagonal1">Diagonal 1</label>
+              <input id="diagonal1" type="number" min="0" step="any" /><br><br>
+              <label for="diagonal2">Diagonal 2</label>
+              <input id="diagonal2" type="number" min="0" step="any" />
+              <h2>
+                <em>A = d1*d2/2</em>
+              </h2>
+            </div>
+
+            <div id="figure_kite" hidden>
+              <label for="diagonal_kite">Diagonal</label>
+              <input id="diagonal_kite" type="number" min="0" step="any" /><br><br>
+              <label for="height_kite">Height</label>
+              <input id="height_kite" type="number" min="0" step="any" />
+              <h2><em>A = d*h/2 </em></h2>
+            </div>
+            <div>
+              <input type="submit" value="Calculate Desired Area" />
+              <input type="text" id="area_result" />
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="fixed">
+        <h1>Nth Prime Number</h1>
+        <div>
+          <form action="javascript:nthPrime()" onchange="javascript:clear_form()">
+            <label for="n">Enter the Nth Prime Number</label>
+            <input id="n" type="number" min="0" step="any" />
+            <h2>
+              <em>
+                <sup>n</sup>th Prime Number = 2 + 3 + 5 + 7 + ... + (2n-1)
+              </em>
+            </h2>
+            <input type="submit" value="Calculate Nth Prime Number" />
+            <input type="text" id="nth_result" />
+          </form>
+      </div>
+    </div>
+  </body>
+</html>
